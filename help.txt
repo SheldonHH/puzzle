@@ -1,11 +1,12 @@
 1. git init
 2. git add .
 3. git commit -m "First Commit"
-4. git remote add origin "http"
-5. git push -u origin master
+4. git remote add origin "https://github.com/xipingsg/fa"
+5. git push -u origin master 
 6. username: 
 7. password
 
 set url
 git remote set-url origin git@github.com:username/repo.git
 git remote set-url origin git@github.com:xipingsg/fa.git
+hence no need to type in username and password for every time
