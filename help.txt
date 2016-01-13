@@ -5,3 +5,6 @@
 5. git push -u origin master
 6. username: 
 7. password
+
+set url
+git remote set-url origin git@github.com:username/repo.git
