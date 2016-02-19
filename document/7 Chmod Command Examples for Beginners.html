@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" type="text/css" href="http://static.thegeekstuff.com/wp-content/thesis/skins/classic-r/css.css.gzip" media="screen, projection" />
+<title>7 Chmod Command Examples for Beginners</title>
+<meta name="description" content="Earlier we discussed about how to use octal permission bits with chmod. In this article, let us review how to use symbolic representation with chmod. Follo" />
+<meta name="robots" content="noodp, noydir" />
+<link rel="canonical" href="http://www.thegeekstuff.com/2010/06/chmod-command-examples/" />
+<link rel="alternate" type="application/rss+xml" title="The Geek Stuff feed" href="http://www.thegeekstuff.com/feed/" />
+<link rel="pingback" href="http://www.thegeekstuff.com/xmlrpc.php" />
+
+<!-- All in One SEO Pack 2.2.6.2 by Michael Torbert of Semper Fi Web Design[295,340] -->
+<meta name="description"  content="Earlier we discussed about how to use octal permission bits with chmod. In this article, let us review how to use symbolic representation with" />
+
+<link rel="canonical" href="http://www.thegeekstuff.com/2010/06/chmod-command-examples/" />
+<!-- /all in one seo pack -->
+<link rel="alternate" type="application/rss+xml" title="The Geek Stuff &raquo; 7 Chmod Command Examples for Beginners Comments Feed" href="http://www.thegeekstuff.com/2010/06/chmod-command-examples/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"http:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/www.thegeekstuff.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.2.6"}};
+			!function(a,b,c){function d(a){var c=b.createElement("canvas"),d=c.getContext&&c.getContext("2d");return d&&d.fillText?(d.textBaseline="top",d.font="600 32px Arial","flag"===a?(d.fillText(String.fromCharCode(55356,56812,55356,56807),0,0),c.toDataURL().length>3e3):(d.fillText(String.fromCharCode(55357,56835),0,0),0!==d.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="shortcut icon" href="http://static.thegeekstuff.com/wp-content/uploads/2015/05/favicon.ico.gzip" />
+</head>
+<body class="template-single">
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-5302569-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<div class="container">
+	<div id="header" class="header">
+<p id="logo"><a href="http://www.thegeekstuff.com"><img src="http://static.thegeekstuff.com/wp-content/themes/thesis_18/custom/images/thegeekstuff.gif" alt="The Geek Stuff" /></a></p><div id="header_ad"><div id="header_ad1">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- TGS Logo Header -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-8090601437064582"
+     data-ad-slot="4708993701"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div></div>
+	</div>
+	<span class="menu_control">≡ Menu</span>
+<ul id="menu-tgs-menu" class="menu"><li id="menu-item-15798" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-15798"><a href="http://www.thegeekstuff.com/">Home</a></li>
+<li id="menu-item-15797" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15797"><a href="http://www.thegeekstuff.com/linux-101-hacks-ebook/">Free eBook</a></li>
+<li id="menu-item-15805" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15805"><a href="http://www.thegeekstuff.com/best-of-the-blog/">Start Here</a></li>
+<li id="menu-item-15800" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15800"><a href="http://www.thegeekstuff.com/contact/">Contact</a></li>
+<li id="menu-item-15802" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15802"><a href="http://www.thegeekstuff.com/about/">About</a></li>
+</ul>
+	<div class="columns">
+		<div class="content">
+			<div id="post-4020" class="post_box grt top" itemscope itemtype="http://schema.org/Article">
+				<div class="headline_area">
+					<h1 class="headline" itemprop="name">7 Chmod Command Examples for Beginners</h1>
+					<div class="byline small">
+						<span class="post_author_intro">by</span> <span class="post_author" itemprop="author">SathiyaMoorthy</span>
+						<meta itemprop="datePublished" content="2010-06-08" />
+						<meta itemprop="dateModified" content="2010-06-06" />
+						<span class="post_date_intro">on</span> <span class="post_date" title="2010-06-08">June 8, 2010</span>
+					</div>
+				</div>
+				<div class="post_content" itemprop="articleBody">
+<div style="margin:7px 0px 6px 0px; padding:5px;">
+
+<div style="float:left; width=95px">
+<g:plusone size="medium"></g:plusone>
+</div>
+
+<div style="float:left; padding:2px; width:90px"><iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.thegeekstuff.com%2F2010%2F06%2Fchmod-command-examples%2F&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe></iframe>
+</div>
+
+<div style="width=95px">
+<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+</div>
+
+</div>
+<p>Earlier we discussed about how to use <a href="http://www.thegeekstuff.com/2010/04/unix-file-and-directory-permissions/">octal permission bits with chmod</a>. In this article, let us review how to use symbolic representation with chmod.<br />
+<span id="more-4020"></span><br />
+Following are the symbolic representation of three different roles:</p>
+<ul>
+<li> u is for user,</li>
+<li> g is for group,</li>
+<li> and o is for others.</li>
+</ul>
+<p>Following are the symbolic representation of three different permissions:</p>
+<ul>
+<li> r is for read permission,</li>
+<li> w is for write permission,</li>
+<li> x is for execute permission.</li>
+</ul>
+<p>Following are few examples on how to use the symbolic representation on chmod.</p>
+<h3>1. Add single permission to a file/directory</h3>
+<p>Changing permission to a single set. + symbol means adding permission. For example, do the following to give execute permission for the user irrespective of anything else:</p>
+<pre>$ chmod u+x filename</pre>
+<h3>2. Add multiple permission to a file/directory</h3>
+<p>Use comma to separate the multiple permission sets as shown below.</p>
+<pre>$ chmod u+r,g+x filename</pre>
+<h3>3. Remove permission from a file/directory</h3>
+<p>Following example removes read and write permission for the user.</p>
+<pre>$ chmod u-rx filename</pre>
+<h3>4. Change permission for all roles on a file/directory</h3>
+<p>Following example assigns execute privilege to user, group and others (basically anybody can execute this file).</p>
+    <center>
+      <div style="margin-left:2px; margin-top:10px; margin-bottom:10px; ">
+
+        <!-- AD BLOCK -->
+		
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- TGS Inside Content -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-8090601437064582"
+     data-ad-slot="8643685131"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        <!-- END AD BLOCK -->
+
+	  </div>
+    </center>
+
+
+<pre>$ chmod a+x filename</pre>
+<h3>5. Make permission for a file same as another file (using reference)</h3>
+<p>If you want to change a file permission same as another file, use the reference option as shown below. In this example, file2&#8217;s permission will be set exactly same as file1&#8217;s permission.</p>
+<pre>$ chmod --reference=file1 file2</pre>
+<h3>6. Apply the permission to all the files under a directory recursively</h3>
+<p>Use option -R to change the permission recursively as shown below.</p>
+<pre>$ chmod -R 755 directory-name/</pre>
+<h3>7. Change execute permission only on the directories (files are not affected)</h3>
+<p>On a particular directory if you have multiple sub-directories and files, the following command will assign execute permission only to all the sub-directories in the current directory (not the files in the current directory).</p>
+<pre>$ chmod u+X *</pre>
+<p><strong>Note:</strong> If the files has execute permission already for either the group or others, the above command will assign the execute permission to the user</p>
+<div style="margin:7px 0px 3px 0px; padding:5px; background:#F2F0E8">
+
+<div style="float:left; width=95px">
+<g:plusone size="medium"></g:plusone>
+</div>
+
+<div style="float:left; width=95px">
+<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+</div>
+
+<div style="float:left; padding:2px; width:90px"><iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.thegeekstuff.com%2F2010%2F06%2Fchmod-command-examples%2F&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe></iframe>
+</div>
+
+<div style="padding:1px">
+&gt;&nbsp;<a href="#commentform" rel="nofollow">Add your comment</a>
+</div>
+
+</div>
+<h3>If you enjoyed this article, you might also like..</h3>
+<table>
+<tr>
+<td valign="top">
+<ol>
+<li><a href="http://www.thegeekstuff.com/2010/12/50-unix-linux-sysadmin-tutorials/">50 Linux Sysadmin Tutorials</a></li>
+<li><a href="http://www.thegeekstuff.com/2010/11/50-linux-commands/">50 Most Frequently Used Linux Commands (With Examples)</a></li>
+<li><a href="http://www.thegeekstuff.com/2011/12/linux-performance-monitoring-tools/">Top 25 Best Linux Performance Monitoring and Debugging Tools</a></li>
+<li><a href="http://www.thegeekstuff.com/2009/03/15-practical-linux-find-command-examples/">Mommy, I found it! – 15 Practical Linux Find Command Examples</a></li>
+<li><a href="http://www.thegeekstuff.com/linux-101-hacks-ebook/">Linux 101 Hacks 2nd Edition eBook</a>&nbsp;<img title="Linux 101 Hacks Book" src="http://static.thegeekstuff.com/images/free-small.png" alt="Linux 101 Hacks Book" /></li>
+</ol>
+</td>
+<td>
+<ul>
+<li><a href="http://www.thegeekstuff.com/2010/01/awk-introduction-tutorial-7-awk-print-examples/">Awk Introduction – 7 Awk Print Examples</a></li>
+<li><a href="http://www.thegeekstuff.com/2009/10/unix-sed-tutorial-advanced-sed-substitution-examples/">Advanced Sed Substitution Examples</a></li>
+<li><a href="http://www.thegeekstuff.com/2009/03/8-essential-vim-editor-navigation-fundamentals/">8 Essential Vim Editor Navigation Fundamentals</a></li>
+<li><a href="http://www.thegeekstuff.com/2011/06/iptables-rules-examples/">25 Most Frequently Used Linux IPTables Rules Examples</a></li>
+<li><a href="http://www.thegeekstuff.com/2008/08/turbocharge-putty-with-12-powerful-add-ons-software-for-geeks-3/">Turbocharge PuTTY with 12 Powerful Add-Ons</a></li>
+</ul>
+</td>
+</tr>
+</table>
+<br />
+<center>
+<table id="booktable">
+<tr>
+<td>
+<a rel="nofollow" href="http://www.thegeekstuff.com/bash-101-hacks-ebook/"><img title="Bash 101 Hacks Book" src="http://static.thegeekstuff.com/images/bash-132.png" alt="Bash 101 Hacks Book" /></a>
+</td>
+<td>
+<a rel="nofollow" href="http://www.thegeekstuff.com/sed-awk-101-hacks-ebook/"><img title="Sed and Awk 101 Hacks Book" src="http://static.thegeekstuff.com/images/sed-and-awk-132.png" alt="Sed and Awk 101 Hacks Book" /></a>
+</td>
+<td>
+<a rel="nofollow" href="http://www.thegeekstuff.com/nagios-core-ebook/"><img title="Nagios Core 3 Book" src="http://static.thegeekstuff.com/images/nagios-core-132.png" alt="Nagios Core 3 Book" /></a>
+</td>
+<td>
+<a rel="nofollow" href="http://www.thegeekstuff.com/vim-101-hacks-ebook/"><img title="Vim 101 Hacks Book" src="http://static.thegeekstuff.com/images/vim-101-hacks-132.png" alt="Vim 101 Hacks Book" /></a>
+</td>
+</tr>
+</table>
+</center>
+<br />
+				</div>
+				<p class="post_tags" itemprop="keywords">
+					<span class="post_tags_intro">Tagged as:</span>
+					<a href="http://www.thegeekstuff.com/tag/chmod-command/" rel="tag">Chmod Command</a>,
+					<a href="http://www.thegeekstuff.com/tag/chmod-examples/" rel="tag">Chmod Examples</a>,
+					<a href="http://www.thegeekstuff.com/tag/linux-chmod-examples/" rel="tag">Linux Chmod Examples</a>,
+					<a href="http://www.thegeekstuff.com/tag/unix-chmod-examples/" rel="tag">Unix Chmod Examples</a>
+				</p>
+			</div>
+			<div id="comments">
+				<p class="comments_intro"><span class="bracket">{</span> <span class="num_comments">23</span> comments&#8230; <a href="#commentform" rel="nofollow">add one</a> <span class="bracket">}</span></p>
+				<ul class="comment_list">
+					<li class="comment even thread-even depth-1" id="comment-49387">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Egor</span>
+							<span class="comment_date">June 8, 2010, 3:32 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-49387"><p>I think correct command for the p.3 in accordance with its subject should be<br />
+$ chmod u-rw filename, don&#8217;t I?</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-49387" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-49398">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">nardi</span>
+							<span class="comment_date">June 8, 2010, 5:59 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-49398"><p>The last one is most handy! Can&#8217;t even remember, how many times I tried to remove exec permision from files copyed from M$ systems but not affect directories.<br />
+former solution:<br />
+for f in `ls -R` ; do [ ! -d &#8220;$f&#8221; ] &amp;&amp; chmod a-x &#8220;$f&#8221; ; done<br />
+and now:<br />
+chmod -R a-x,u+X *</p>
+<p>big thx</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-49398" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-49404">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">rbz</span>
+							<span class="comment_date">June 8, 2010, 7:20 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-49404"><p>@nardi:<br />
+While the first six examples are rather trivial I agree for the last one. I&#8217;ve been looking for this solution for months.  </p>
+<p>chmod -R a-x,u+X *    &#8211;  such a beauty! </p>
+<p>thx</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-49404" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-49724">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Alex</span>
+							<span class="comment_date">June 12, 2010, 12:51 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-49724"><p>The last one is truly great. I&#8217;ve always used &#8220;find -type d -exec &#8230;&#8221; for this. I&#8217;m a little confused about your note, though. Why would it care about the group permissions?</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-49724" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-49912">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">nardi</span>
+							<span class="comment_date">June 13, 2010, 1:26 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-49912"><p>@Alex<br />
+The note is about regular files, that the +X rule is not only affecting directories. See man chmod or try it yourself by hand.</p>
+<p>This will set the exec rights:<br />
+nardi@kub1x ~/test $ ll file<br />
+-rw-r-xr&#8211; 1 nardi nardi 56 Jun 13 21:06 file*<br />
+nardi@kub1x ~/test $ chmod a+X file<br />
+nardi@kub1x ~/test $ ll file<br />
+-rwxr-xr-x 1 nardi nardi 56 Jun 13 21:06 file*</p>
+<p>This won&#8217;t set anything, because regular file &#8220;file&#8221; is neither a directory nor has any exec bit on.<br />
+nardi@kub1x ~/test $ ll file<br />
+-rw-r&#8211;r&#8211; 1 nardi nardi 56 Jun 13 21:06 file<br />
+nardi@kub1x ~/test $ chmod u+X file<br />
+nardi@kub1x ~/test $ ll file<br />
+-rw-r&#8211;r&#8211; 1 nardi nardi 56 Jun 13 21:06 file</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-49912" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-124874">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">john</span>
+							<span class="comment_date">August 30, 2011, 7:32 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-124874"><p>chmod -R a-x,u+X * </p>
+<p>this command applyed my vstfd stop please give solution</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-124874" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-200519">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Claudia</span>
+							<span class="comment_date">February 22, 2012, 5:11 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-200519"><p>I used to work with linux command in the University and after a pause of few years&#8230; it brought me back to &#8216;beginers mode&#8217; when I needed to use chmod.</p>
+<p>I was looking for some sites where I can find a comprehensive explanation with few examples. I could benefit a lot from this guide and a BIG &#8220;THANK YOU&#8221;!</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-200519" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-212760">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">prabhakar</span>
+							<span class="comment_date">March 24, 2012, 12:18 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-212760"><p>thanks for posting chmod command information</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-212760" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-541931">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Hal</span>
+							<span class="comment_date">February 15, 2013, 2:12 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-541931"><p>Hey! Thanks for the examples,</p>
+<p>I have read thousand article about chmod. Everybody writes what chmod does and Which file permission what does..Cool! But,</p>
+<p>Noone writes where I have to set those codes&#8230;To be able to change file permission exp:<br />
+I will use this $ chmod u+r,g+x filename.</p>
+<p>Where do I have to add this?</p>
+<p>Thanks alot!<br />
+Regards.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-541931" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-848901">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Rohit</span>
+							<span class="comment_date">July 19, 2013, 3:44 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-848901"><p>What about &#8220;STICKY BITS&#8221; ??</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-848901" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-884034">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">jose</span>
+							<span class="comment_date">August 13, 2013, 8:51 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-884034"><p>how to fix this? the terminal says &#8216;no such file is in the directory&#8217;.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-884034" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-893103">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">ram</span>
+							<span class="comment_date">August 19, 2013, 8:29 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-893103"><p>i was changing file permission of a certain file named &#8220;hostname&#8221; with a file attribute of r-x r-x rx. I went to that file location since it was located in a folder directory of /bin. when I use the chmod it says &#8220;no file name&#8221; but I am already inside /bin where hostname is located. any help please!</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-893103" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-1004499">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">julijuli</span>
+							<span class="comment_date">October 29, 2013, 9:42 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-1004499"><p>thats good</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-1004499" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1085808">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Varun Jain</span>
+							<span class="comment_date">December 4, 2013, 10:11 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-1085808"><p>The beauty of Linux file security is chmod. It allow all user to different permission.<br />
+Simply:<br />
+Read: 4<br />
+Write: 2<br />
+Execute: 1<br />
+First character for : User<br />
+Second for : Group<br />
+and Third for : All<br />
+For example User wants to only read file only for user then:<br />
+chmod 400<br />
+easy job!!<br />
+Love File Permission</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-1085808" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-1139221">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Mitch</span>
+							<span class="comment_date">December 23, 2013, 12:15 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-1139221"><p>Yes, simple binary.  RWX 4,2,1.   Any combination for owner, group, all.  Here are some very common chmod examples.<br />
+755 &#8211; Can&#8217;t execute without read.  So owner gets all rights and all others can execute and read.<br />
+644 &#8211; Non-executable file that the owner can write to and all others can read.<br />
+666 Read/Write by all, inherently evil.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-1139221" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1368496">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Karthik Srigaddhe</span>
+							<span class="comment_date">March 20, 2014, 12:55 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-1368496"><p>Thank u so much for this info&#8230;</p>
+<p>I find it very useful for beginners</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-1368496" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-1582410">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Paul Johnson</span>
+							<span class="comment_date">April 29, 2014, 9:38 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-1582410"><p>Shouldn&#8217;t example 3 be &#8220;$ chmod u-rw filename&#8221; instead of &#8220;$ chmod u-rx filename&#8221;?</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-1582410" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1947680">
+						<div class="comment_head">
+							<span class="avatar"><a href="http://sketchmotion.com" rel="nofollow"></a></span>
+							<span class="comment_author"><a href='http://sketchmotion.com' rel='external nofollow' class='url'>Terry Clancy</a></span>
+							<span class="comment_date">July 10, 2014, 10:26 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-1947680"><p>Hi SathiyaMoorthy </p>
+<p>I am trying to use ncftp to use chmod to set permssions on files and folders on a site I have hosted on a Windows Server at GoDaddy</p>
+<p>I connect OK but when I enter </p>
+<p>chmod a+rwx web.cofig </p>
+<p>I get this error </p>
+<p>chmod web.config: server said: &#8216;SITE': command not understood.</p>
+<p>Any idea what the problem is ?</p>
+<p>Thanks</p>
+<p>Terry Clancy</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-1947680" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-2504326">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Minol</span>
+							<span class="comment_date">October 18, 2014, 12:05 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-2504326"><p>chmod sticky mod How?</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-2504326" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-3695177">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Baju koko</span>
+							<span class="comment_date">January 30, 2015, 6:33 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-3695177"><p>how to chmod a+rx ?</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-3695177" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-3761140">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">vishal</span>
+							<span class="comment_date">February 8, 2015, 3:59 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-3761140"><p>great help<br />
+But can you please explain 3rd example<br />
+I think it should be<br />
+chmod u &#8211; rw filename.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-3761140" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-3779945">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">semaj</span>
+							<span class="comment_date">February 10, 2015, 8:06 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-3779945"><p>I new to AIX, I want to change 800 files system permissions to 750, and the owner:group. How can I do this in a script, all at once?</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-3779945" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-4030341">
+						<div class="comment_head">
+							<span class="avatar"><a href="http://www.jsade.com" rel="nofollow"></a></span>
+							<span class="comment_author"><a href='http://www.jsade.com' rel='external nofollow' class='url'>Javad Sadeqzadeh</a></span>
+							<span class="comment_date">April 18, 2015, 8:32 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-4030341"><p>This is one of the greatest and most clear guides on permissions and the chmod command. Thank you for such a clear guide.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-4030341" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+				</ul>
+				<form id="commentform" method="post" action="http://www.thegeekstuff.com/wp-comments-post.php">
+					<a rel="nofollow" id="cancel-comment-reply-link" href="/2010/06/chmod-command-examples/#respond" style="display:none;">Cancel reply</a>
+					<p class="comment_form_title">Leave a Comment</p>
+					<p id="comment_form_name">
+						<label for="author">Name</label>
+						<input type="text" id="author" class="input_text" name="author" value="" tabindex="1" />
+					</p>
+					<p id="comment_form_email">
+						<label for="email">Email</label>
+						<input type="text" id="email" class="input_text" name="email" value="" tabindex="2" />
+					</p>
+					<p id="comment_form_url">
+						<label for="url">Website</label>
+						<input type="text" id="url" class="input_text" name="url" value="" tabindex="3" />
+					</p>
+					<p id="comment_form_comment">
+						<label for="comment">Comment</label>
+						<textarea name="comment" id="comment" class="input_text" tabindex="4" rows="6"></textarea>
+					</p>
+					<p id="comment_form_submit">
+						<input type="submit" id="submit" class="input_submit" name="submit" tabindex="5" value="Submit" />
+					</p>
+<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="cc38e4f465" /></p>
+
+	<p style="clear: both;" class="subscribe-to-comments">
+	<input type="checkbox" name="subscribe" id="subscribe" value="subscribe" style="width: auto;" />
+	<label for="subscribe">Notify me of followup comments via e-mail</label>
+	</p>
+
+
+<p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="119"/></p><input type='hidden' name='comment_post_ID' value='4020' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+				</form>
+			</div>
+			<div class="prev_next">
+				<p class="next_post">Next post: <a href="http://www.thegeekstuff.com/2010/06/what-the-heck-is-rtfm/" rel="next">Ask Yoda: What the Heck is RTFM?</a></p>
+				<p class="previous_post">Previous post: <a href="http://www.thegeekstuff.com/2010/06/bash-shell-brace-expansion/" rel="prev">Bash Brace Expansion Tutorial: 6 Examples of Expanding Expressions within Braces</a></p>
+			</div>
+		</div>
+		<div class="sidebar">
+<div class="widget widget_text" id="text-21">			<div class="textwidget"><a title="Subscribe via RSS" href="http://www.thegeekstuff.com/feed" rel="nofollow">RSS</a>&nbsp; | &nbsp;<a title="Subscribe via Email" href="http://feedburner.google.com/fb/a/mailverify?uri=TheGeekStuff&loc=en_US" rel="nofollow">Email</a>&nbsp; | &nbsp;<a title="Follow us on Twitter" href="http://twitter.com/thegeekstuff" rel="nofollow">Twitter</a>&nbsp; | &nbsp;<a title="Become a fan" href="http://www.facebook.com/thegeekstuff" rel="nofollow">Facebook</a>&nbsp; | &nbsp;<a title="Follow us on Google+" href="https://plus.google.com/112493711428194838421/posts">Google+</a>
+<br /><br />
+<form action="http://www.thegeekstuff.com/search" id="cse-search-box">
+  <div>
+    <input type="hidden" name="cx" value="005666763606120661560:zkmegbt_djm" />
+    <input type="hidden" name="cof" value="FORID:10" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input style="background-color:#fffeee" type="text" name="q" size="30" />
+    <input style="border-color:#CCCCCC #999999 #999999 #CCCCCC; border-style:double; border-width:1px; overflow:visible;" type="submit" name="sa" value="Search" />
+  </div>
+</form>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">google.load("elements", "1", {packages: "transliteration"});</script>
+<script type="text/javascript" src="http://www.google.com/coop/cse/t13n?form=cse-search-box&t13n_langs=en"></script>
+<script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&lang=en"></script>
+<br /></div>
+		</div><div class="widget widget_text" id="text-3">			<div class="textwidget"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- TGS Side Bar -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-8090601437064582"
+     data-ad-slot="9054077260"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br/></div>
+		</div><div class="widget widget_text" id="text-4"><p class="widget_title">EBOOKS</p>			<div class="textwidget"><ul>
+<li><img title="Linux 101 Hacks Book" src="http://static.thegeekstuff.com/images/free-small.png" alt="Linux 101 Hacks Book" />&nbsp;<a href="http://www.thegeekstuff.com/linux-101-hacks-ebook/">Linux 101 Hacks 2nd Edition eBook</a> - Practical Examples to Build a Strong Foundation in Linux</li>
+<li><a href="http://www.thegeekstuff.com/bash-101-hacks-ebook/">Bash 101 Hacks eBook</a> - Take Control of Your Bash Command Line and Shell Scripting</li>
+<li><a href="http://www.thegeekstuff.com/sed-awk-101-hacks-ebook/">Sed and Awk 101 Hacks eBook</a> - Enhance Your UNIX / Linux Life with Sed and Awk</li>
+<li><a href="http://www.thegeekstuff.com/vim-101-hacks-ebook/">Vim 101 Hacks eBook</a> - Practical Examples for Becoming Fast and Productive in Vim Editor</li>
+<li><a href="http://www.thegeekstuff.com/nagios-core-ebook/">Nagios Core 3 eBook</a> - Monitor Everything, Be Proactive, and Sleep Well</li>
+</ul></div>
+		</div><div class="widget widget_text" id="text-22">			<div class="textwidget"><iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fthegeekstuff&amp;width&amp;height=258&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:258px;" allowTransparency="true"></iframe></div>
+		</div><div class="widget widget_text" id="text-17"><p class="widget_title">POPULAR POSTS</p>			<div class="textwidget"><ul>
+<li><a href="http://www.thegeekstuff.com/2009/01/12-amazing-and-essential-linux-books-to-enrich-your-brain-and-library/">12 Amazing and Essential Linux Books To Enrich Your Brain and Library</a></li>
+<li><a href="http://www.thegeekstuff.com/2010/12/50-unix-linux-sysadmin-tutorials/">50 UNIX / Linux Sysadmin Tutorials</a></li>
+<li><a href="http://www.thegeekstuff.com/2010/11/50-linux-commands/">50 Most Frequently Used UNIX / Linux Commands (With Examples)</a></li>
+<li><a href="http://www.thegeekstuff.com/2010/08/gtd-getting-things-done/">How To Be Productive and Get Things Done Using GTD</a></li>
+<li><a href="http://www.thegeekstuff.com/2010/03/30-things-to-do-when-you-are-bored-and-have-a-computer/">30 Things To Do When you are Bored and have a Computer</a></li>
+<li><a href="http://www.thegeekstuff.com/2010/09/linux-file-system-structure/">Linux Directory Structure (File System Structure) Explained with Examples</a></li>
+<li><a href="http://www.thegeekstuff.com/2009/06/15-practical-crontab-examples/">Linux Crontab: 15 Awesome Cron Job Examples</a></li>
+<li><a href="http://www.thegeekstuff.com/2009/03/15-practical-unix-grep-command-examples/">Get a Grip on the Grep! – 15 Practical Grep Command Examples</a></li>
+<li><a href="http://www.thegeekstuff.com/2009/07/linux-ls-command-examples/">Unix LS Command: 15 Practical Examples</a></li>
+<li><a href="http://www.thegeekstuff.com/2008/08/15-examples-to-master-linux-command-line-history/">15 Examples To Master Linux Command Line History</a></li>
+<li><a href="http://www.thegeekstuff.com/2010/08/bug-tracking-system/">Top 10 Open Source Bug Tracking System</a></li>
+<li><a href="http://www.thegeekstuff.com/2009/01/vi-and-vim-macro-tutorial-how-to-record-and-play/">Vi and Vim Macro Tutorial: How To Record and Play</a></li>
+<li><a href="http://www.thegeekstuff.com/2009/03/15-practical-linux-find-command-examples/">Mommy, I found it! -- 15 Practical Linux Find Command Examples</a></li>
+<li><a href="http://www.thegeekstuff.com/2009/07/best-gmail-tips-and-tricks/">15 Awesome Gmail Tips and Tricks</a></li>
+<li><a href="http://www.thegeekstuff.com/2009/06/expertise-in-google-search/">15 Awesome Google Search Tips and Tricks</a></li>
+<li><a href="http://www.thegeekstuff.com/2010/08/raid-levels-tutorial/">RAID 0, RAID 1, RAID 5, RAID 10 Explained with Diagrams</a></li>
+<li><a href="http://www.thegeekstuff.com/2010/01/15-practical-unix-linux-top-command-examples/">Can You Top This? 15 Practical Linux Top Command Examples</a></li>
+<li><a href="http://www.thegeekstuff.com/2009/09/top-5-best-network-monitoring-tools/">Top 5 Best System Monitoring Tools</a></li>
+<li><a href="http://www.thegeekstuff.com/2009/06/top-5-best-linux-os-distributions/">Top 5 Best Linux OS Distributions</a></li>
+<li><a href="http://www.thegeekstuff.com/2008/06/how-to-monitor-remote-linux-host-using-nagios-30/">How To Monitor Remote Linux Host using Nagios 3.0</a></li>
+<li><a href="http://www.thegeekstuff.com/2010/01/awk-introduction-tutorial-7-awk-print-examples/">Awk Introduction Tutorial – 7 Awk Print Examples</a></li>
+<li><a href="http://www.thegeekstuff.com/2010/09/rsync-command-examples/">How to Backup Linux? 15 rsync Command Examples</a></li>
+<li><a href="http://www.thegeekstuff.com/2009/09/the-ultimate-wget-download-guide-with-15-awesome-examples/">The Ultimate Wget Download Guide With 15 Awesome Examples</a></li>
+<li><a href="http://www.thegeekstuff.com/2009/07/top-5-best-linux-text-editors/">Top 5 Best Linux Text Editors</a></li>
+<li><a href="http://www.thegeekstuff.com/2010/08/tcpdump-command-examples/">Packet Analyzer: 15 TCPDUMP Command Examples</a></li>
+<li><a href="http://www.thegeekstuff.com/2010/06/bash-array-tutorial/">The Ultimate Bash Array Tutorial with 15 Examples</a></li>
+<li><a href="http://www.thegeekstuff.com/2008/11/3-steps-to-perform-ssh-login-without-password-using-ssh-keygen-ssh-copy-id/">3 Steps to Perform SSH Login Without Password Using ssh-keygen & ssh-copy-id</a></li>
+<li><a href="http://www.thegeekstuff.com/2009/10/unix-sed-tutorial-advanced-sed-substitution-examples/">Unix Sed Tutorial: Advanced Sed Substitution Examples</a></li>
+<li><a href="http://www.thegeekstuff.com/2010/03/netstat-command-examples/">UNIX / Linux: 10 Netstat Command Examples</a></li>
+<li><a href="http://www.thegeekstuff.com/2008/06/the-ultimate-guide-for-creating-strong-passwords/">The Ultimate Guide for Creating Strong Passwords</a></li>
+<li><a href="http://www.thegeekstuff.com/2008/08/6-steps-to-secure-your-home-wireless-network/">6 Steps to Secure Your Home Wireless Network</a></li>
+<li><a href="http://www.thegeekstuff.com/2008/08/turbocharge-putty-with-12-powerful-add-ons-software-for-geeks-3/">Turbocharge PuTTY with 12 Powerful Add-Ons</a></li>
+</ul></div>
+		</div><div class="widget widget_text" id="text-19"><p class="widget_title">CATEGORIES</p>			<div class="textwidget"><ul>
+<li><a rel="nofollow" href="/category/linux/">Linux Tutorials</a></li>
+<li><a rel="nofollow" href="/category/vim-2/">Vim Editor</a></li>
+<li><a rel="nofollow" href="/category/sed/">Sed Scripting</a></li>
+<li><a rel="nofollow" href="/category/awk/">Awk Scripting</a></li>
+<li><a rel="nofollow" href="/category/bash-2/">Bash Shell Scripting</a></li>
+<li><a rel="nofollow" href="/category/nagios-2/">Nagios Monitoring</a></li>
+<li><a rel="nofollow" href="/category/openssh-2/">OpenSSH</a></li>
+<li><a rel="nofollow" href="/category/iptables/">IPTables Firewall</a></li>
+<li><a rel="nofollow" href="/category/apache/">Apache Web Server</a></li>
+<li><a rel="nofollow" href="/category/mysql/">MySQL Database</a></li>
+<li><a rel="nofollow" href="/category/perl/">Perl Programming</a></li>
+<li><a rel="nofollow" href="/category/google/">Google Tutorials</a></li>
+<li><a rel="nofollow" href="/category/ubuntu/">Ubuntu Tutorials</a></li>
+<li><a rel="nofollow" href="/category/postgresql/">PostgreSQL DB</a></li>
+<li><a rel="nofollow" href="/category/hello-world/">Hello World Examples</a></li>
+<li><a rel="nofollow" href="/category/c-programming/">C Programming</a></li>
+<li><a rel="nofollow" href="/category/c-plus-plus/">C++ Programming</a></li>
+<li><a rel="nofollow" href="/category/dell-2/">DELL Server Tutorials</a></li>
+<li><a rel="nofollow" href="/category/oracle/">Oracle Database</a></li>
+<li><a rel="nofollow" href="/category/vmware/">VMware Tutorials</a></li>
+</ul></div>
+		</div><div class="widget widget_text" id="text-20">			<div class="textwidget"><g:person href="https://plus.google.com/112493711428194838421" data-rel="author" layout="landscape"></g:person></div>
+		</div>		</div>
+	</div>
+	<div class="footer">
+<div id="footer_widgets" class="columns_3">
+	<div class="one-third sidebar first">
+<div class="widget widget_text" id="text-7"><h4 class="widget_title">About The Geek Stuff</h4>			<div class="textwidget"><br />
+<img class="float" title="Ramesh Natarajan" src="http://static.thegeekstuff.com/images/ramesh-small.gif" alt="Linux 101 Hacks Book" />
+My name is <strong>Ramesh Natarajan</strong>. I will be posting instruction guides, how-to, troubleshooting tips and tricks on Linux, database, hardware, security and web. My focus is to write articles that will either teach you or help you resolve a problem. Read more about <a href="http://www.thegeekstuff.com/about/">Ramesh Natarajan</a> and the blog.</div>
+		</div>	</div>
+	<div class="one-third sidebar">
+<div class="widget widget_text" id="text-9"><h4 class="widget_title">Contact Us</h4>			<div class="textwidget"><br />
+<strong>Email Me :</strong>
+Use this <a href="http://www.thegeekstuff.com/contact" rel="nofollow">Contact Form</a> to get in touch me with your comments, questions or suggestions about this site. You can also simply drop me a line to say hello!.
+<br /><br />
+<a title="Follow us on Google+" href="https://plus.google.com/112493711428194838421/posts">Follow us on Google+</a>
+<br /><br />
+<a title="Follow us on Twitter" href="http://twitter.com/thegeekstuff" rel="nofollow">Follow us on Twitter</a>
+<br /><br />
+<a href="
+http://www.facebook.com/thegeekstuff" rel="nofollow">Become a fan on Facebook</a>&nbsp;&nbsp;</div>
+		</div>	</div>
+	<div class="one-third sidebar last">
+<div class="widget widget_text" id="text-8"><h4 class="widget_title">Support Us</h4>			<div class="textwidget"><br />
+Support this blog by purchasing one of my ebooks.
+<br /><br />
+<a rel="nofollow" href="http://www.thegeekstuff.com/bash-101-hacks-ebook/">Bash 101 Hacks eBook</a>
+<br /><br />
+<a rel="nofollow" href="http://www.thegeekstuff.com/sed-awk-101-hacks-ebook/">Sed and Awk 101 Hacks eBook</a>
+<br /><br />
+<a rel="nofollow" href="http://www.thegeekstuff.com/vim-101-hacks-ebook/">Vim 101 Hacks eBook</a>
+<br /><br />
+<a rel="nofollow" href="http://www.thegeekstuff.com/nagios-core-ebook/">Nagios Core 3 eBook</a></div>
+		</div>	</div>
+	<div style="clear:both;"></div>
+</div>
+		<p class="attribution">Copyright &copy; 2008&ndash;2015 Ramesh Natarajan. All rights reserved  | <a href="http://www.thegeekstuff.com/copyright">Terms of Service</a></p>
+	</div>
+</div>
+<script type='text/javascript' src='http://static.thegeekstuff.com/wp-content/plugins/akismet/_inc/form.js.gzip?ver=3.1.5'></script>
+<script type='text/javascript' src='http://static.thegeekstuff.com/wp-includes/js/comment-reply.min.js.gzip?ver=4.2.6'></script>
+<script type="text/javascript">
+(function(){
+	var classes = document.getElementsByClassName('menu_control');
+	for (i = 0; i < classes.length; i++) {
+		classes[i].onclick = function() {
+			var menu = this.nextElementSibling;
+			if (/show_menu/.test(menu.className))
+				menu.className = menu.className.replace('show_menu', '').trim();
+			else
+				menu.className += ' show_menu';
+		};
+	}
+})();
+</script>
+<noscript><style type="text/css" scoped>.menu { display: block; }</style></noscript>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+
+</body>
+</html>
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Page Caching using disk: enhanced
+Content Delivery Network via Amazon Web Services: CloudFront: static.thegeekstuff.com
+
+ Served from: www.thegeekstuff.com @ 2016-01-13 01:15:02 by W3 Total Cache -->
